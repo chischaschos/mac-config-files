@@ -1,0 +1,24 @@
+" let mapleader = ","
+
+autocmd BufWritePre * :%s/\s\+$//e
+
+call pathogen#infect()
+
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+map <D-R> :!bundle exec rspec %<CR>
+
+" Tab mappings.
+map <leader>tne :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove
